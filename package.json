@@ -1,6 +1,10 @@
 {
   "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.1",
     "express": "^5.2.1",
+    "mongodb": "^7.6.0",
+    "mongose": "^0.0.2-security",
     "node": "^26.9.0"
   }
 }

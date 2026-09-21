@@ -1,33 +1,4 @@
 {
-  "metadata": {
-    "dataset": "Sri Lanka Solar PV Grid Seed Data",
-    "version": "1.4.0",
-    "generated_at": "2026-09-20T16:12:00.907706Z",
-    "country": "Sri Lanka",
-    "currency": "LKR",
-    "timezone": "Asia/Colombo",
-    "reading_granularity": "daily",
-    "reading_period": {
-      "start": "2026-09-06",
-      "end": "2026-09-19",
-      "days": 14
-    },
-    "record_counts": {
-      "provinces": 9,
-      "districts": 25,
-      "grid_substations": 30,
-      "solar_installations": 280,
-      "generation_readings": 3920
-    },
-    "relationships": [
-      "districts.province_id -> provinces.province_id",
-      "grid_substations.district_id -> districts.district_id",
-      "solar_installations.district_id -> districts.district_id",
-      "solar_installations.substation_id -> grid_substations.substation_id",
-      "generation_readings.installation_id -> solar_installations.installation_id"
-    ],
-    "notes": "Synthetic data for development/testing only. Place names are real; owners, capacities and readings are fabricated."
-  },
   "provinces": [
     {
       "province_id": 1,
