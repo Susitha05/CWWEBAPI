@@ -16,29 +16,6 @@ access. Metering devices are write-only clients, scoped to their own installatio
 - Node.js 18+
 - A MongoDB Atlas cluster (or any reachable MongoDB instance)
 
-## 2. Environment variables
-
-Create a `.env` file in the project root:
-
-```
-MONGODB_USERNAME=<your atlas db username>
-MONGODB_PASSWORD=<your atlas db password>
-JWT_SECRET=<a long random string>
-PORT=4000
-```
-
-The seed script builds the connection string itself as:
-
-```
-mongodb+srv://<MONGODB_USERNAME>:<MONGODB_PASSWORD>@cluster0.potyfwz.mongodb.net
-```
-
-against database `solargenaration`. If you're pointing at a different cluster, update the
-hostname in `seed/seed.js` (and in your DB connection setup, if it builds the URI the same way).
-
-> The seed script also calls `dns.setServers(['8.8.8.8', '1.1.1.1'])` before connecting —
-> this works around DNS resolution issues with `mongodb+srv` on some networks/containers.
-> Remove it if it's not needed on your machine.
 
 ## 3. Install and seed
 
@@ -79,18 +56,6 @@ npm run dev       # nodemon, if configured
 
 > Confirm these routes still match your `server.js` — update if your mount paths differ.
 
-## 5. Test users
-
-Password for all seeded users: **`12345678!`**
-
-| username | role | jurisdiction |
-|---|---|---|
-| `national.admin` | national | all data |
-| `western.provincial` | provincial | Western province only |
-| `gampaha.district` | district | Gampaha district only |
-
-Login via `POST /api/auth/login` with `{ "username": "...", "password": "12345678!" }` to
-get a JWT. Send it as `Authorization: Bearer <token>` on subsequent read-path requests.
 
 > Double check the `gampaha.district` user's `district_id` lookup in `seed.js` actually
 > resolves to Gampaha (`district_id: 2`) and not a different district, since a wrong id
@@ -139,10 +104,3 @@ middleware/       auth (device API key + user JWT), error handling
      never commit `.env`.
 3. Confirm `/health` and `/docs` both load on the **public HTTPS URL** before submitting —
    localhost-only submissions aren't accepted.
-
-## 9. AI-disclosure note
-
-Parts of this codebase were produced with AI assistance. For your coursework's AI-disclosure
-appendix, record the actual prompts you used and which files you wrote, edited, or accepted
-as-is — this README is documentation, not a substitute for that disclosure. You need to be
-able to explain every file at the viva.
