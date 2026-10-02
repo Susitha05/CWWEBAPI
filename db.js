@@ -2,8 +2,6 @@ const dns = require('dns');
 const mongoose = require('mongoose');
 require('dotenv').config()
 
-dotenv.config();
-
 dns.setServers(['8.8.8.8', '1.1.1.1']);
 
 const { MONGODB_USERNAME, MONGODB_PASSWORD } = process.env;
