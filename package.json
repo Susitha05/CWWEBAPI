@@ -10,6 +10,7 @@
     "mongoose": "^9.10.2",
     "mongose": "^0.0.2-security",
     "node": "^26.9.0",
+    "serverless-http": "^4.0.0",
     "swagger-jsdoc": "^6.3.0",
     "swagger-ui-express": "^5.0.1",
     "uuid": "^14.0.2"

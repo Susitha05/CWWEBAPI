@@ -1,10 +1,4 @@
+const serverless = require("serverless-http");
 const app = require("../../server");
 
-exports.handler = async (event, context) => {
-    return {
-        statusCode: 200,
-        body: JSON.stringify({
-            message: "Solar Generation API"
-        })
-    };
-};
+module.exports.handler = serverless(app);
