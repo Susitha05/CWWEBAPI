@@ -11,7 +11,7 @@ const { connectDB } = require('./db.js');
 const{userAuth} = require('./middleware/api.js');
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT;
 app.use(cors());
 app.use(express.json());
 
@@ -48,8 +48,6 @@ connectDB()
     });
 
 if (require.main === module) {
-    const PORT = 5000;
-
     app.listen(PORT, () => {
         console.log(
             `🚀 Server running on http://localhost:${PORT}`
