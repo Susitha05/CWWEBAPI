@@ -36,8 +36,7 @@ async function connectDB() {
   return mongoose.connection;
 }
 
-
-export function assertConnected() {
+function assertConnected() {
   if (!isConnected) {
     throw new Error('Database not initialized. Call connectDB() before handling requests.');
   }
