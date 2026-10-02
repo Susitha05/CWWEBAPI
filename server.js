@@ -31,17 +31,27 @@ app.use(
     swaggerUi.setup(swaggerSpec)
 );
 
-async function startServer() {
-  try {
-    await connectDB();
-    app.listen(PORT, () => {
-      console.log(`🚀 Server running on port ${PORT}`);
+app.get('/', (req, res) => {
+    res.json({
+        message: 'Solar Generation API is running',
+        status: 'success'
     });
-  } catch (err) {
-    console.error('❌ Failed to start server:', err.message);
-    process.exit(1);
-  }
+});
+
+// Connect MongoDB
+connectDB()
+    .then(() => {
+        console.log('✅ MongoDB connected');
+    })
+    .catch((err) => {
+        console.error('❌ MongoDB connection failed:', err.message);
+    });
+
+  if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`🚀 Server running on http://localhost:${PORT}`);
+    });
 }
-startServer();
+module.exports = app;
 
 

@@ -14,7 +14,7 @@ if (!MONGODB_USERNAME || !MONGODB_PASSWORD) {
   );
 }
 
-const uri = `mongodb+srv://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@cluster0.potyfwz.mongodb.net`;
+const uri = process.env.MONGODB;
 const DB_NAME = 'solargenaration';
 
 let isConnected = false;
