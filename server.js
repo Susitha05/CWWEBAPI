@@ -47,9 +47,13 @@ connectDB()
         console.error('❌ MongoDB connection failed:', err.message);
     });
 
-  if (require.main === module) {
+if (require.main === module) {
+    const PORT = 5000;
+
     app.listen(PORT, () => {
-        console.log(`🚀 Server running on http://localhost:${PORT}`);
+        console.log(
+            `🚀 Server running on http://localhost:${PORT}`
+        );
     });
 }
 module.exports = app;
