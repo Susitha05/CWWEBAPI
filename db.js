@@ -26,7 +26,7 @@ let isConnected = false;
  * and calls methods like Province.find() that only work through Mongoose's
  * own connection.
  */
-export async function connectDB() {
+async function connectDB() {
   if (isConnected) return mongoose.connection;
 
   await mongoose.connect(uri, { dbName: DB_NAME });
@@ -42,3 +42,8 @@ export function assertConnected() {
     throw new Error('Database not initialized. Call connectDB() before handling requests.');
   }
 } 
+
+module.exports = {
+    connectDB,
+    assertConnected
+};
