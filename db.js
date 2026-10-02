@@ -1,6 +1,6 @@
-import mongoose from 'mongoose';
-import dns from 'dns';
-import dotenv from 'dotenv';
+const dns = require('dns');
+const mongoose = require('mongoose');
+require('dotenv').config()
 
 dotenv.config();
 
