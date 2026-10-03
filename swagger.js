@@ -12,7 +12,8 @@ const option = {
 
         servers: [
             {
-                url: 'https://magical-sawine-b5994d.netlify.app/api'|| process.env.PORT
+                url: 'http://localhost:5000'
+                //url: 'http://localhost:5000'
             }
         ],
 
