@@ -26,8 +26,8 @@ app.use('/v1/api/installation', (req, res, next) => {
 }, installation);
 
 app.use(
-    '/api-doc',
-    swaggerUi.serve,
+'/api-doc',
+    swaggerUi.serveFiles(swaggerSpec),
     swaggerUi.setup(swaggerSpec)
 );
 
